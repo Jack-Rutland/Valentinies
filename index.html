@@ -1,0 +1,233 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Valentinies</title>
+    <meta name="description" content="our project" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400"
+      rel="stylesheet"
+      a
+    />
+    
+
+     <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="heading">
+      <img
+        src="https://cdn.glitch.com/a6bf3e63-d142-445c-a955-2201d478e4cf%2Fheart.png?v=1612648965653"
+      />
+        <h1>Valentinies</h1>
+      <div id="export-buttons">
+        <button class="ex-button" onclick="saveToFile()">Export to File</button>
+        <button class="ex-button" onclick="saveToFile()">Email</button>
+      </div>
+    </div>
+    <div id="sidebar-left">
+      <center>
+        <div>
+          <button
+            class="card-button"
+            onclick="cardPick(0)"
+            style="background: url(https://cdn.glitch.com/a6bf3e63-d142-445c-a955-2201d478e4cf%2Fcard2.2small.png?v=1612707273865); "
+          ></button>
+        </div>
+      </center>
+      <center>
+        <div>
+          <button
+            class="card-button"
+            onclick="cardPick(1)"
+            style="background: url(https://cdn.glitch.com/a6bf3e63-d142-445c-a955-2201d478e4cf%2Fcard%203small.png?v=1612673594074); "
+          ></button>
+        </div>
+      </center>
+      <center>
+        <div>
+          <button
+            class="card-button"
+            onclick="cardPick(2)"
+            style="background: url(https://cdn.glitch.com/a6bf3e63-d142-445c-a955-2201d478e4cf%2Fanotheronesmall.2.png?v=1612707285481); "
+          ></button>
+        </div>
+      </center>
+      <center>
+        <div id="textSelect">
+          <button
+            class="option-button-left"
+            onclick="textLeft()"
+            style="background: url(https://cdn.glitch.com/a6bf3e63-d142-445c-a955-2201d478e4cf%2Farrow%20left.png?v=1612655615595); "
+          ></button>
+          <img
+            src="https://cdn.glitch.com/a6bf3e63-d142-445c-a955-2201d478e4cf%2Ftext.png?v=1612696833891"
+            width="80"
+            height="80"
+            style="margin:10px"
+          />
+          <button
+            class="option-button-right"
+            onclick="textRight()"
+            style="background: url(https://cdn.glitch.com/a6bf3e63-d142-445c-a955-2201d478e4cf%2Farrow%20right.png?v=1612655618123); width: 10"
+          ></button>
+        </div>
+      </center>
+      <center>
+        <button
+          class="card-button"
+          onclick="undoLast()"
+          style="height: 80px; margin-top: 20px; margin-bottom: 20px; background: url(https://cdn.glitch.com/a6bf3e63-d142-445c-a955-2201d478e4cf%2Fundopink.png?v=1612700831188)"
+        ></button>
+      </center>
+      <center>
+        <button
+          class="card-button"
+          onclick="clearCanvas()"
+          style="background: url(https://cdn.glitch.com/a6bf3e63-d142-445c-a955-2201d478e4cf%2Fclearn.png?v=1612701004351)"
+        ></button>
+      </center>
+    </div>
+    <center>
+      <div id="canvas"></div>
+    </center>
+    <div id="sidebar-right">
+      <center>
+        <button
+          class="card-button"
+          onclick="brushSelect()"
+          style="margin-top: 80px; background: url(https://cdn.glitch.com/a6bf3e63-d142-445c-a955-2201d478e4cf%2Fbrush.png?v=1612701522351)"
+        ></button>
+      </center>
+
+      <div id="canvas-holder">
+        <script src="sketch.js"></script>
+      </div>
+      <center>
+        <div id="shapeselect">
+          <div
+            style="float: left;
+  margin-top: 60px;"
+          >
+            <button onclick="shapeLeft()" class="option-button-left"></button>
+          </div>
+          <input
+            onclick="shapeStored()"
+            type="image"
+            src="https://cdn.glitch.com/a6bf3e63-d142-445c-a955-2201d478e4cf%2Fheart2fix.png?v=1612658591865"
+            name="shapeSelect"
+            id="shape-button-main"
+            width="110"
+            height="110"
+          />
+          <div
+            style="float: right;
+  margin-top: 60px;"
+          >
+            <button onclick="shapeRight()" class="option-button-right"></button>
+          </div>
+        </div>
+      </center>
+      <center>
+        <button
+          class="card-button"
+          onclick="activateGlitter()"
+          style="background: url(https://cdn.glitch.com/a6bf3e63-d142-445c-a955-2201d478e4cf%2Fglitterfix.png?v=1612707934660)"
+        ></button>
+      </center>
+      <center>
+        <div id="color-select">
+          <button
+            onclick="colorPick('#ff0000')"
+            style="background-color: #ff0000"
+            class="color-button"
+          ></button>
+          <button
+            onclick="colorPick('#ffa500')"
+            style="background-color: #ffa500"
+            class="color-button"
+          ></button>
+          <button
+            onclick="colorPick('#ffff00')"
+            style="background-color: #ffff00"
+            class="color-button"
+          ></button>
+          <button
+            onclick="colorPick('#00ff00')"
+            style="background-color: #00ff00"
+            class="color-button"
+          ></button>
+          <button
+            onclick="colorPick('#0000ff')"
+            style="background-color: #0000ff"
+            class="color-button"
+          ></button>
+          <button
+            onclick="colorPick('#6a0dad')"
+            style="background-color: #6a0dad"
+            class="color-button"
+          ></button>
+          <button
+            onclick="colorPick('#fae')"
+            style="background-color: #fae"
+            class="color-button"
+          ></button>
+          <button
+            onclick="colorPick('#ffffff')"
+            style="background-color: #ffffff"
+            class="color-button"
+          ></button>
+          <button
+            onclick="colorPick('#964b00')"
+            style="background-color: #964b00"
+            class="color-button"
+          ></button>
+          <button
+            onclick="colorPick('#000000')"
+            style="background-color: #000000"
+            class="color-button"
+          ></button>
+        </div>
+      </center>
+      <center>
+        <div id="stickerselect">
+          <div
+            style="float: left;
+          margin-top: 25px;"
+          >
+            <button onclick="stickerLeft()" class="option-button-left"></button>
+          </div>
+          <input
+            onclick="changeSticker()"
+            type="image"
+            src="https://cdn.glitch.com/a6bf3e63-d142-445c-a955-2201d478e4cf%2Fdino_sticker.png?v=1612670923327"
+            name="stickerSelect"
+            id="stickerIMG"
+            width="110"
+            height="110"
+          />
+          <div
+            style="float: right;
+          margin-top: 25px;"
+          >
+            <button
+              onclick="stickerRight()"
+              class="option-button-right"
+            ></button>
+          </div>
+        </div>
+      </center>
+    </div>
+  </body>
+</html>
